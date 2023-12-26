@@ -1,4 +1,5 @@
 # sacado de https://github.com/how4rd/meshflow/blob/master/meshflowstabilizer.py
+import os
 
 import cv2
 import math
@@ -150,7 +151,12 @@ class MeshFlowStabilizer:
                 '`MeshFlowStabilizer.ADAPTIVE_WEIGHTS_DEFINITION_CONSTANT_LOW`.'
             )
 
+
+        if  not os.path.exists(input_path):
+            raise Exception(f"File [{input_path}] does not exists")
+
         unstabilized_frames, num_frames, frames_per_second, codec = self._get_unstabilized_frames_and_video_features(input_path)
+
         vertex_unstabilized_displacements_by_frame_index, homographies = self._get_unstabilized_vertex_displacements_and_homographies(num_frames, unstabilized_frames)
         vertex_stabilized_displacements_by_frame_index = self._get_stabilized_vertex_displacements(
             num_frames, unstabilized_frames, adaptive_weights_definition,
@@ -1342,4 +1348,10 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as inst:
+        print(type(inst))  # the exception type
+        print(inst.args)  # arguments stored in .args
+        print(inst)  # __str__ allows args to be printed directly,
+
