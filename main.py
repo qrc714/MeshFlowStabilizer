@@ -6,6 +6,9 @@ import numpy as np
 import statistics
 import tqdm
 
+from consts import INPUT_FILE, OUTPUT_FILE
+
+
 class MeshFlowStabilizer:
     '''
     A MeshFlowStabilizer stabilizes videos using the MeshFlow algorithm outlined in
@@ -1326,8 +1329,8 @@ class MeshFlowStabilizer:
 
 def main():
     # TODO get video path from command line args
-    input_path = 'videos/video-1/video-1.m4v'
-    output_path = 'videos/video-1/stabilized-method-original.m4v'
+    input_path = INPUT_FILE
+    output_path = OUTPUT_FILE
     stabilizer = MeshFlowStabilizer(visualize=True)
     cropping_ratio, distortion_score, stability_score = stabilizer.stabilize(
         input_path, output_path,
