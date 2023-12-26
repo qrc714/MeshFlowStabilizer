@@ -4,8 +4,8 @@
 #Colmenares
 
 
-INPUT_FILE = 'Q:\tmp\Segundo López\Fragmento 2K.mov'
-OUTPUT_FILE = 'Q:\tmp\Segundo López\outfile'
+INPUT_FILE = 'Q:\\tmp\\Segundo López\\Fragmento 2K.mov'
+OUTPUT_FILE = 'Q:\\tmp\\Segundo López\\outfile'
 
 
 #Salónica MINT
